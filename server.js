@@ -20,7 +20,10 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 
 // Middleware to read JSON data from requests
-app.use(cors());
+app.use(cors({
+  origin: 'https://fitness-tracker-gamma-coral.vercel.app', 
+  credentials: true,
+}));
 
 app.get('/', (req, res) => {
   res.send('Fitness Tracker API is running...');
